@@ -39,13 +39,13 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-#  disable-monitor:
-#    uses: zgamelogic/data-otter-monitor-active/.github/workflows/action.yml@v1.0.2
-#    needs: build
-#    with:
-#      applicationId: 1702
-#      monitorId: 5
-#      active: false
+  disable-monitor:
+    uses: zgamelogic/data-otter-monitor-active/.github/workflows/action.yml@v1.0.2
+    needs: build
+    with:
+      applicationId: 1702
+      monitorId: 1652
+      active: false
   Kubernetes:
     runs-on: PiServer
     needs: build
@@ -60,12 +60,11 @@ jobs:
         run: sudo kubectl rollout restart deployment oni
       - name: Wait for readiness probe
         run: sudo kubectl rollout status deployment oni --timeout=600s
-
-#  enable-monitor:
-#    uses: zgamelogic/data-otter-monitor-active/.github/workflows/action.yml@v1.0.2
-#    needs: [ build, disable-monitor, Kubernetes ]
-#    if: always()
-#    with:
-#      applicationId: 1702
-#      monitorId: 5
-#      active: true
+  enable-monitor:
+    uses: zgamelogic/data-otter-monitor-active/.github/workflows/action.yml@v1.0.2
+    needs: [ build, disable-monitor, Kubernetes ]
+    if: always()
+    with:
+      applicationId: 1702
+      monitorId: 1652
+      active: true
