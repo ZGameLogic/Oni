@@ -53,7 +53,7 @@ jobs:
       - name: Checkout Kubernetes Directory
         uses: actions/checkout@v4
         with:
-          sparse-checkout: 'kubernetes/'`
+          sparse-checkout: 'kubernetes/'
       - name: Apply Kubernetes Configuration
         run: sudo kubectl apply -f kubernetes/
       - name: Rolling update
