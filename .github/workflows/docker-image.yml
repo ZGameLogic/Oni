@@ -48,7 +48,7 @@ jobs:
       active: false
   Kubernetes:
     runs-on: PiServer
-    needs: build
+    needs: disable-monitor
     steps:
       - name: Checkout Kubernetes Directory
         uses: actions/checkout@v4
