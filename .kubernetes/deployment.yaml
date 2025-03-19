@@ -1,28 +1,45 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test
+  name: oni
   labels:
-    app: test
+    app: oni
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: test
+      app: oni
   template:
     metadata:
-      name: test
+      name: oni
       labels:
-        app: test
+        app: oni
     spec:
       containers:
-        - name: test
-          image: ghcr.io/zgamelogic/test:master
+        - name: oni
+          image: ghcr.io/zgamelogic/oni:master
           imagePullPolicy: Always
           volumeMounts:
             - name: keystore-volume
               mountPath: "/etc/keystore"
               readOnly: true
+          env:
+            - name: TZ
+              value: "America/Chicago"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 15
+            periodSeconds: 30
       volumes:
         - name: keystore-volume
           secret:
@@ -30,5 +47,3 @@ spec:
       restartPolicy: Always
       imagePullSecrets:
         - name: ghcr-secret
-
-      

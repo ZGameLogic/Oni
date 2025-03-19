@@ -1,14 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: test
+  name: oni
 spec:
   selector:
-    app: test
+    app: oni
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
-      nodePort: 30000
+      port: 2006
+      targetPort: 2006
+      nodePort: 30060
   type: NodePort
-  
