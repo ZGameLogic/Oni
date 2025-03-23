@@ -9,5 +9,4 @@ spec:
     - protocol: TCP
       port: 2006
       targetPort: 2006
-      nodePort: 30060
-  type: NodePort
+  type: ClusterIP

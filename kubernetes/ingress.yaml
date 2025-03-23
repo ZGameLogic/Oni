@@ -2,9 +2,6 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: oni-ingress
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: websecure
-    traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
   rules:
     - host: "oni.zgamelogic.com"
@@ -16,7 +13,7 @@ spec:
               service:
                 name: oni
                 port:
-                  number: 30060
+                  number: 2006
   tls:
     - hosts:
         - "oni.zgamelogic.com"
