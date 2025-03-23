@@ -11,4 +11,9 @@ public class HealthController {
     public String health() {
         return "Healthy";
     }
+
+    @GetMapping("test")
+    public String test() {
+        return "Test";
+    }
 }
