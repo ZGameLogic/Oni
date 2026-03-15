@@ -13,7 +13,7 @@ spec:
               service:
                 name: oni
                 port:
-                  number: 2006
+                  number: 8080
   tls:
     - hosts:
         - "oni.zgamelogic.com"

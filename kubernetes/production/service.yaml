@@ -7,6 +7,6 @@ spec:
     app: oni
   ports:
     - protocol: TCP
-      port: 2006
-      targetPort: 2006
+      port: 8080
+      targetPort: 8080
   type: ClusterIP

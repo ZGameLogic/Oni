@@ -7,6 +7,6 @@ ENV SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE}
 WORKDIR /app
 COPY /target/oni-1.0.0.jar /app/oni-1.0.0.jar
 
-EXPOSE 2006
+EXPOSE 8080
 
 CMD ["java", "-jar", "oni-1.0.0.jar"]
