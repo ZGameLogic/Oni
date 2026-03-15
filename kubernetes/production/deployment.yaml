@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: oni
-          image: ghcr.io/zgamelogic/oni:master
+          image: ghcr.io/zgamelogic/oni:production
           imagePullPolicy: Always
           env:
             - name: TZ
@@ -31,7 +31,7 @@ spec:
             periodSeconds: 5
           livenessProbe:
             httpGet:
-              path: /health
+              path: /actuator/health
               port: 8080
               scheme: HTTP
             initialDelaySeconds: 15
