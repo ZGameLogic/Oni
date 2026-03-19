@@ -15,3 +15,5 @@ jobs:
       environment: production
       deploymentName: oni
       imageName: oni
+    secrets:
+      PACKAGE_READ: ${{ secrets.PACKAGE_READ }}
