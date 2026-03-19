@@ -20,6 +20,13 @@
         <version>4.0.3</version>
     </parent>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/zgamelogic/spring-discord-auth</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>com.zgamelogic</groupId>
